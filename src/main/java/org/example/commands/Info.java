@@ -8,11 +8,10 @@ import org.example.utility.InvalidFormatExeption;
  * The command outputs information about the collection
  */
 public class Info implements  Command {
-    private Collection collection;
-    private Console console;
-    public Info(Console console,Collection collection){
-        this.console =console;
-        this.collection = collection;
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Info(){
+
     }
     @Override
     public void execute(String arg){

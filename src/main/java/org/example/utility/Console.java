@@ -1,5 +1,7 @@
 package org.example.utility;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.example.commands.Execute_Script;
 import org.example.commands.Insert;
 
@@ -7,23 +9,30 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static lombok.AccessLevel.PRIVATE;
+
 /**
  * a class for reading and writing from the console
  */
+@NoArgsConstructor(access = PRIVATE)
 public class Console {
+    public static Console getInstance() {
+        return INSTANCE;
+    }
+
+    private static final Console INSTANCE= new Console();
     private  Scanner fileScanner = null;
-    private    Scanner defScanner = new Scanner(System.in);
+    private     Scanner defScanner = new Scanner(System.in);
     private  Scanner scanner;
 
     public Scanner getScanner() {
         return scanner;
     }
 
-    public Console() {
-        defScanner = new Scanner(System.in);
+      {
         this.print("Добро пожаловать!");
         this.print("Введите help для вывода инструкции");
-    }
+      }
 
     public String getInput() {
         String input = null;

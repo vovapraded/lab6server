@@ -11,12 +11,11 @@ import java.util.ArrayList;
  * Output elements with venue.capacity less than this number
  */
 public class Filter_Less_Than_Venue implements Command{
-    private Collection collection;
-    private Console console;
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
 
-    public Filter_Less_Than_Venue(Console console, Collection collection){
-        this.console =console;
-        this.collection = collection;
+    public Filter_Less_Than_Venue(){
+
     }
 
     @Override

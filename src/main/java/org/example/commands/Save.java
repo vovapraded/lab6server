@@ -8,11 +8,10 @@ import org.example.utility.Console;
  * The command saves the collection
  */
 public class Save implements Command{
-    private Collection collection;
-    private Console console;
-    public Save(Console console,Collection collection){
-        this.console =console;
-        this.collection = collection;
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Save(){
+
     }
 
     @Override

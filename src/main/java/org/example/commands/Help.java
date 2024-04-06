@@ -13,11 +13,10 @@ import org.example.managers.*;
  * Command for help info
  */
 public class Help implements Command {
-    private Collection collection;
-    private Console console;
-    public Help(Console console,Collection collection){
-        this.console =console;
-        this.collection = collection;
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Help(){
+
     }
     @Override
     public void execute(String arg) {

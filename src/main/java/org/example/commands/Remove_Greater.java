@@ -9,17 +9,15 @@ import org.example.dto.*;
  * The remove items with a price higher than the specified one command
  */
 public class Remove_Greater implements Command{
-    private Collection collection;
-    private Console console;
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Remove_Greater(){
 
-    public Remove_Greater(Console console, Collection collection){
-        this.console =console;
-        this.collection = collection;
     }
 
     @Override
     public void execute(String arg) {
-            CreateTicket creator = new CreateTicket(console,collection);
+            CreateTicket creator = new CreateTicket();
             Ticket ticket = creator.createTicket(collection.getFreeId());
             collection.removeGreater(ticket);
             console.print("Удалено успешно");

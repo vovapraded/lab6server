@@ -12,8 +12,9 @@ import java.util.*;
  * A class that checks the collection for the correctness of the data
  */
 public class ValidatorOfCollection {
-
-    public void validateCollection(Console console,Collection collection) {
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public void validateCollection() {
         Set<Long> setTicketId = new HashSet<>();
         Set<Long> setVenueId = new HashSet<>();
 

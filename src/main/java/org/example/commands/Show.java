@@ -12,11 +12,10 @@ import java.util.Collections;
  * The command outputs a collection
  */
 public class Show implements Command{
-    private Collection collection;
-    private Console console;
-    public Show(Console console, Collection collection){
-        this.console =console;
-        this.collection = collection;
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Show(){
+
     }
 
     @Override

@@ -14,13 +14,13 @@ import org.example.managers.*;
 
 public class Main {
     public static void main(String[] args) {
-        Collection collection = new Collection();
-        Console console = new Console();
-        ExecutorOfComands executor =new ExecutorOfComands(console,collection);
+        Collection collection =  Collection.getInstance();
+        Console console = Console.getInstance();
+        ExecutorOfComands executor =new ExecutorOfComands();
         ParseInput parseInput = new ParseInput();
         DumpManager.loadFromFile(collection);
         ValidatorOfCollection validator = new ValidatorOfCollection();
-        validator.validateCollection(console,collection);
+        validator.validateCollection();
         while (true){
             String s = console.getInput();
             if (!s.isEmpty()) {

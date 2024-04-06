@@ -11,13 +11,12 @@ import java.util.Scanner;
  * The command to execute a script from a file
  */
 public class Execute_Script implements Command{
-    private Collection collection;
-    private Console console;
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
     private static ArrayList<File> stack = new ArrayList<>();
     private static ArrayList<Scanner> stackScanners = new ArrayList<>();
-    public Execute_Script(Console console,Collection collection){
-        this.console =console;
-        this.collection = collection;
+    public Execute_Script(){
+
     }
 
     public static ArrayList<File> getStack() {

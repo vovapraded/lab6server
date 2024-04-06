@@ -9,12 +9,11 @@ import org.example.dto.*;
  * The command to delete items with an id greater than the specified number
  */
 public class Remove_Greater_Key implements Command{
-    private Collection collection;
-    private Console console;
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
 
-    public Remove_Greater_Key(Console console, Collection collection){
-        this.console =console;
-        this.collection = collection;
+    public Remove_Greater_Key(){
+
     }
 
     @Override

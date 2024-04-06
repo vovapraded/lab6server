@@ -9,19 +9,18 @@ import org.example.dto.*;
  * Add item command
  */
 public class Insert implements Command {
-    private Collection collection;
-    private Console console;
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
 
-    public Insert(Console console, Collection collection) {
-        this.console = console;
-        this.collection = collection;
+    public Insert() {
+
 
     }
 
     @Override
     public void execute(String idstr) {
         Long id = ValidateId.validateId(idstr, true, collection);
-        CreateTicket creator = new CreateTicket(console,collection);
+        CreateTicket creator = new CreateTicket();
         collection.insertElement(creator.createTicket(id));
         console.print("Билет успешно введён");
     }

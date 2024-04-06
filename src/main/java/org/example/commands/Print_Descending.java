@@ -12,11 +12,10 @@ import java.util.ListIterator;
  * The command to display the collection in reverse order
  */
 public class Print_Descending implements Command{
-    private Collection collection;
-    private Console console;
-    public Print_Descending(Console console,Collection collection){
-        this.console =console;
-        this.collection = collection;
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Print_Descending(){
+
     }
     @Override
     public void execute(String arg) {

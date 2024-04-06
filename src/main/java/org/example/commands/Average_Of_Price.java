@@ -8,11 +8,10 @@ import org.example.utility.*;
  * The command to display the average price
  */
 public class Average_Of_Price implements Command {
-    private Collection collection;
-    private Console console;
-    public Average_Of_Price(Console console, Collection collection){
-        this.console =console;
-        this.collection = collection;
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Average_Of_Price(){
+
     }
     @Override
     public void execute(String arg) {

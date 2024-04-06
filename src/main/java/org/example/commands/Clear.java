@@ -6,11 +6,10 @@ import org.example.utility.*;
  * The clear collection command
  */
 public class Clear implements Command{
-    private Collection collection;
-    private Console console;
-    public Clear(Console console,Collection collection){
-        this.console =console;
-        this.collection = collection;
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Clear(){
+
     }
     @Override
     public void execute(String arg) {
