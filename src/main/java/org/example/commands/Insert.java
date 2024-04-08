@@ -20,6 +20,7 @@ public class Insert extends Command implements Serializable {
         var idstr = stringArg;
         Long id = ValidateId.validateId(idstr, true, collection);
         collection.insertElement(ticketArg);
-        console.print("Билет успешно введён");
+        console.addToSend("Билет успешно введён");
+        console.send();
     }
 }

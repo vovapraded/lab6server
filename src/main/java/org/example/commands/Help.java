@@ -22,13 +22,14 @@ public class Help extends Command implements Serializable {
             try (Scanner scanner = new Scanner(inputStream)) {
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
-                    console.print(line);
+                    console.addToSend(line);
                 }
             } catch (Exception e) {
-                console.print("Ошибка при чтении файла: " + e.getMessage());
+                console.addToSend("Ошибка при чтении файла: " + e.getMessage());
             }
         } else {
-            console.print("Файл help.txt не найден");
+            console.addToSend("Файл help.txt не найден");
         }
+        console.send();
     }
 }

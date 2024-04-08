@@ -49,12 +49,13 @@ public class ExecuteScript extends Command implements Serializable {
                     stackScanners.add(scanner);
                     console.selectFileScanner(scanner);
                 }else {
-                    console.print("Ошибка бесконечная рекурсия");
+                    console.addToSend("Ошибка бесконечная рекурсия");
                 }
             } catch (FileNotFoundException e) {
                 throw new InvalidFormatExeption("Нет такого файла");
             }catch (SecurityException e){
                 throw new InvalidFormatExeption("Нет прав доступа");
         }
+        console.send();
     }
 }

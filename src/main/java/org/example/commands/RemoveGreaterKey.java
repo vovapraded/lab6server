@@ -23,10 +23,12 @@ public class RemoveGreaterKey extends Command implements  Serializable {
             collection.removeGreaterKey(id);
             int sizeAfter = collection.getCountOfElements();
             if (sizeAfter != sizeBefore) {
-                console.print("Успешно удалено");
+                console.addToSend("Успешно удалено");
             }else {
-                console.print("Нет таких элементов");
+                console.addToSend("Нет таких элементов");
             }
+        console.send();
+
 
 
     }

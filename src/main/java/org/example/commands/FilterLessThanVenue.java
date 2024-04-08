@@ -29,12 +29,12 @@ public class FilterLessThanVenue extends Command implements Serializable {
             Long capacity= Long.parseLong(capacityStr);
             ArrayList<Ticket> filtered = collection.filterLessThanVenue(capacity);
             if (filtered.isEmpty()){
-                console.print("Нет таких элементов");
+                console.addToSend("Нет таких элементов");
             }
             for (Ticket ticket : filtered){
-                console.print(ticket.toString());
+                console.addToSend(ticket.toString());
             }
-
+        console.send();
 
     }
 }

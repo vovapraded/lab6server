@@ -21,6 +21,8 @@ public class RemoveGreater extends Command implements Serializable {
             CreateTicket creator = new CreateTicket();
             Ticket ticket = creator.createTicket(collection.getFreeId());
             collection.removeGreater(ticket);
-            console.print("Удалено успешно");
+            console.addToSend("Удалено успешно");
+        console.send();
+
     }
 }

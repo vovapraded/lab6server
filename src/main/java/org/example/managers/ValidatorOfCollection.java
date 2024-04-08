@@ -25,15 +25,15 @@ public class ValidatorOfCollection {
             setVenueId.add(venue.getId());
         }
         if (setVenueId.size()!=Venue.getInstancesVenue().size() || setTicketId.size()!=Ticket.getInstancesTicket().size()){
-            console.print("Ошибка уникальности id в файле");
+            console.addToSend("Ошибка уникальности id в файле");
             collection.clearCollection();
-            console.print("Коллекция очищена");
+            console.addToSend("Коллекция очищена");
         }
         for (Long id: collection.getHashMap().keySet()){
             if (!Objects.equals(id, collection.getHashMap().get(id).getId())){
-                console.print("Ошибка. Не совпадает id билета с ключом");
+                console.addToSend("Ошибка. Не совпадает id билета с ключом");
                 collection.clearCollection();
-                console.print("Коллекция очищена");
+                console.addToSend("Коллекция очищена");
                 break;
 
             }

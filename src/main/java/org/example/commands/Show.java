@@ -21,14 +21,16 @@ public class Show extends Command implements Serializable {
     @Override
     public void execute() {
             if (collection.getHashMap().isEmpty()){
-                console.print("Коллекция пуста");
+                console.addToSend("Коллекция пуста");
             }
             else{
                 Arrays.sort(collection.getHashMap().values().toArray());
                 for (Ticket ticket : collection.getHashMap().values()){
-                    console.print(ticket.toString());
+                    console.addToSend(ticket.toString());
                 }
             }
+        console.send();
+
 
     }
 }

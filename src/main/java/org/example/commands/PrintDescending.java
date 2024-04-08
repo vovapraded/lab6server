@@ -16,8 +16,10 @@ public class PrintDescending extends Command implements Serializable {
     public void execute() {
         Object[] array =  collection.getHashMap().values().toArray();
         for(int i = array.length-1 ;i>=0;i--){
-            console.print(array[i].toString());
+            console.addToSend(array[i].toString());
+
         }
+        console.send();
 
     }
 }

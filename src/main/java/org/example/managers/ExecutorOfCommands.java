@@ -12,12 +12,18 @@ public class ExecutorOfCommands {
 
 
     private final Collection collection = Collection.getInstance();
-    private final  Console console = Console.getInstance();
+    private  final  Console console = Console.getInstance();
 
     public ExecutorOfCommands(){
     }
     public void executeCommand(Command command) {
-        command.execute();
+        try {
+            command.execute();
+        }
+        catch (InvalidFormatExeption e){
+            console.addToSend(e.getMessage());
+            console.send();
+        }
     }
 
 

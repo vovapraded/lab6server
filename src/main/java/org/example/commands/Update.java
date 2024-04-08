@@ -21,13 +21,9 @@ public class Update extends Command implements Serializable {
         Long id = ValidateId.validateId(idstr,false,collection);
         Ticket ticket = collection.getElement(Long.parseLong(idstr));
         collection.removeElement(id);
-        try {
             Insert ins = new Insert ();
             ins.setStringArg(stringArg);
             ins.execute();
-        }catch (InvalidFormatExeption e){
-            collection.insertElement(ticket);
-            System.out.println(e.getMessage());
-        }
+
     }
 }

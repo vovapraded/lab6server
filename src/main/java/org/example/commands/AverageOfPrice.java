@@ -15,9 +15,10 @@ public class AverageOfPrice extends Command implements Serializable {
     @Override
     public void execute() {
         if (collection.getAveragePrice() == -1) {
-            console.print("Коллекция пуста");
+            console.addToSend("Коллекция пуста");
         } else {
-            console.print("Средняя цена " + collection.getAveragePrice());
+            console.addToSend("Средняя цена " + collection.getAveragePrice());
         }
+        console.send();
     }
 }

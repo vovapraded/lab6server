@@ -17,6 +17,8 @@ public class RemoveKey extends Command implements Serializable {
     public void execute(){
         var idstr = stringArg;
         collection.removeElement(ValidateId.validateId(idstr,false,collection));
-        console.print("Элемент удалён");
+        console.addToSend("Элемент удалён");
+        console.send();
+
     }
 }

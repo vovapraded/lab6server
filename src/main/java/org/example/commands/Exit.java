@@ -15,7 +15,8 @@ public class Exit extends Command implements Serializable {
     private static final long serialVersionUID = "Exit".hashCode();
     @Override
     public void execute() {
-        console.print("Завершение работы");
+        console.addToSend("Завершение работы");
+        console.send();
         System.exit(0);
     }
 }

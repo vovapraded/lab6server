@@ -28,13 +28,15 @@ public class ReplaceIfGreater extends Command implements Serializable {
         Ticket newTicket = creator.createTicket(newId);
 
         if (newTicket.compareTo(oldTicket)>0){
-            console.print("Операция прошла успешно. Замена произошла");
+            console.addToSend("Операция прошла успешно. Замена произошла");
             collection.removeElement(id);
             newTicket.setId(id);
             collection.insertElement(newTicket);
         }
         else {
-            console.print("Операция прошла успешно. Замена не произошла");
+            console.addToSend("Операция прошла успешно. Замена не произошла");
         }
+        console.send();
+
     }
 }

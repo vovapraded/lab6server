@@ -19,12 +19,12 @@ public class Save extends Command implements Serializable {
     public void execute() {
             try {
                 DumpManager.saveToFile(collection);
-                console.print("Коллекция успешно сохранена");
+                console.addToSend("Коллекция успешно сохранена");
             }
             catch (NullPointerException e){
-                console.print("Создайте файл для сохранения");
+                console.addToSend("Создайте файл для сохранения");
             }
-
+        console.send();
 
 
 
