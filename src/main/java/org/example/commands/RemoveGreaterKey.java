@@ -3,21 +3,21 @@ package org.example.commands;
 
 import org.example.managers.*;
 import org.example.utility.*;
-import org.example.dto.*;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * The command to delete items with an id greater than the specified number
  */
-public class Remove_Greater_Key implements Command{
-    private final Collection collection = Collection.getInstance();
-    private final  Console console = Console.getInstance();
+public class RemoveGreaterKey extends Command implements  Serializable {
+    @Serial
+    private static final long serialVersionUID = "RemoveGreaterKey".hashCode();
 
-    public Remove_Greater_Key(){
-
-    }
 
     @Override
-    public void execute(String idstr) {
+    public void execute() {
+            var idstr=stringArg;
             Long id =ValidateId.validateId(idstr,false,collection);
             int sizeBefore = collection.getCountOfElements();
             collection.removeGreaterKey(id);

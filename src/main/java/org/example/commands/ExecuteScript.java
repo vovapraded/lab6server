@@ -1,21 +1,24 @@
 package org.example.commands;
+import lombok.NoArgsConstructor;
 import org.example.managers.*;
 import org.example.utility.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * The command to execute a script from a file
  */
-public class Execute_Script implements Command{
-    private final Collection collection = Collection.getInstance();
-    private final  Console console = Console.getInstance();
+public class ExecuteScript extends Command implements Serializable {
+    @Serial
+    private static final long serialVersionUID = "Clear".hashCode();
     private static ArrayList<File> stack = new ArrayList<>();
     private static ArrayList<Scanner> stackScanners = new ArrayList<>();
-    public Execute_Script(){
+    public ExecuteScript(){
 
     }
 
@@ -28,17 +31,17 @@ public class Execute_Script implements Command{
     }
 
     public static void setStackScanners(ArrayList<Scanner> stackScanners) {
-        Execute_Script.stackScanners = stackScanners;
+        ExecuteScript.stackScanners = stackScanners;
     }
 
     public static void setStack(ArrayList<File> stack) {
-        Execute_Script.stack = stack;
+        ExecuteScript.stack = stack;
     }
 
     @Override
-    public void execute(String arg) {
+    public void execute() {
             try {
-                File file = new File(arg);
+                File file = new File(stringArg);
                 if (!stack.contains(file)){
                     stack.add(file);
 

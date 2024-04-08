@@ -1,11 +1,15 @@
 package org.example.dto;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
+
 /**
  * class for dto with id
  */
-public abstract class ElementsWithId {
+public abstract class ElementsWithId implements Serializable {
+    @Serial
+    private static final long serialVersionUID = "ElementsWithId".hashCode();
 
     protected static ArrayList<Ticket> instancesTicket = new ArrayList<>();
     protected static ArrayList<Venue> instancesVenue = new ArrayList<>();

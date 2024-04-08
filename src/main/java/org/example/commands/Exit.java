@@ -1,19 +1,20 @@
 package org.example.commands;
 
+import lombok.NoArgsConstructor;
 import org.example.managers.Collection;
 import org.example.utility.Console;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * The shutdown command
  */
-public class Exit implements Command{
-    private final Collection collection = Collection.getInstance();
-    private final  Console console = Console.getInstance();
-    public Exit(){
-
-    }
+public class Exit extends Command implements Serializable {
+    @Serial
+    private static final long serialVersionUID = "Exit".hashCode();
     @Override
-    public void execute(String arg) {
+    public void execute() {
         console.print("Завершение работы");
         System.exit(0);
     }

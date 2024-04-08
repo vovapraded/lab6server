@@ -5,17 +5,19 @@ import org.example.managers.Collection;
 import org.example.managers.CreateTicket;
 import org.example.utility.*;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 
 /**
  * The command to replace the item price if it is higher
  */
-public class Replace_If_Greater implements Command {
-    private final Collection collection = Collection.getInstance();
-    private final  Console console = Console.getInstance();
-        public Replace_If_Greater(){
+public class ReplaceIfGreater extends Command implements Serializable {
+    @Serial
+    private static final long serialVersionUID = "ReplaceIfGreater".hashCode();
 
-        }
-    public void execute(String idstr){
+    public void execute(){
+        var idstr = stringArg;
         ValidateId.validateId(idstr,false,collection);
         Long id = Long.parseLong(idstr);
         Ticket oldTicket = collection.getElement(id);

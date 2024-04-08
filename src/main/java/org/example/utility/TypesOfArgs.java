@@ -12,7 +12,7 @@ public enum TypesOfArgs {
     Double(Double.class),
     String(String.class),
     Boolean(Boolean.class),
-    Command(Comands.class),
+    Command(Commands.class),
 
     VenueType(VenueType.class),
     TicketType(TicketType.class);

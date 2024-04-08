@@ -1,11 +1,11 @@
 package org.example.utility;
 
-import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import org.example.commands.Execute_Script;
-import org.example.commands.Insert;
+import org.example.commands.ExecuteScript;
 
-import java.io.*;
+import java.io.File;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,7 +15,8 @@ import static lombok.AccessLevel.PRIVATE;
  * a class for reading and writing from the console
  */
 @NoArgsConstructor(access = PRIVATE)
-public class Console {
+public  class Console  {
+
     public static Console getInstance() {
         return INSTANCE;
     }
@@ -43,8 +44,8 @@ public class Console {
 
 
         if (input!=null) return input;
-        ArrayList<File> stack = Execute_Script.getStack();
-        ArrayList<Scanner> stackScanners = Execute_Script.getStackScanners();
+        ArrayList<File> stack = ExecuteScript.getStack();
+        ArrayList<Scanner> stackScanners = ExecuteScript.getStackScanners();
         int size = stack.size();
         if (stack.isEmpty()){
             System.exit(0);
@@ -52,9 +53,9 @@ public class Console {
 
         print("Чтение файла "+stack.get(stack.size()-1)+" окончено");
         stack.remove(stack.size()-1);
-        Execute_Script.setStack(stack);
+        ExecuteScript.setStack(stack);
         stackScanners.remove(stackScanners.size()-1);
-        Execute_Script.setStackScanners(stackScanners);
+        ExecuteScript.setStackScanners(stackScanners);
         if (stack.isEmpty()){
             selectConsoleScanner();
         }else{

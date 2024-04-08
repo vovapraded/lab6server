@@ -5,18 +5,19 @@ import org.example.managers.*;
 import org.example.utility.*;
 import org.example.dto.*;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 /**
  * The remove items with a price higher than the specified one command
  */
-public class Remove_Greater implements Command{
-    private final Collection collection = Collection.getInstance();
-    private final  Console console = Console.getInstance();
-    public Remove_Greater(){
+public class RemoveGreater extends Command implements Serializable {
+    @Serial
+    private static final long serialVersionUID = "RemoveGreater".hashCode();
 
-    }
 
     @Override
-    public void execute(String arg) {
+    public void execute() {
             CreateTicket creator = new CreateTicket();
             Ticket ticket = creator.createTicket(collection.getFreeId());
             collection.removeGreater(ticket);

@@ -1,8 +1,14 @@
 package org.example.dto;
+
+import java.io.Serial;
+import java.io.Serializable;
+
 /**
  * a class for storing venue data
  */
-public class Venue extends ElementsWithId  {
+public class Venue extends ElementsWithId implements Serializable {
+    @Serial
+    private static final long serialVersionUID = "Venue".hashCode();
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Long capacity; //Поле может быть null, Значение поля должно быть больше 0
     private VenueType type; //Поле может быть null
