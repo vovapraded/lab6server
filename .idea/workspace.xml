@@ -5,48 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3acac28-a2ee-4ea6-9edf-def5a5fa7f1f" name="Changes" comment="a">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/connection/UdpServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/managers/ExecutorOfCommands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/Deserializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/app.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/commands/FilterLessThanVenueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Average_Of_Price.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/AverageOfPrice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Clear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/Clear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Execute_Script.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/ExecuteScript.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/Exit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Filter_Less_Than_Venue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/FilterLessThanVenue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/Info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Insert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/Insert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Print_Descending.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/PrintDescending.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Remove_Greater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/RemoveGreater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Remove_Greater_Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/RemoveGreaterKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Remove_Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/RemoveKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Replace_If_Greater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/ReplaceIfGreater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/Save.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/Show.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/Update.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/Coordinates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/ElementsWithId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/ElementsWithId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/TicketType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/TicketType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/Venue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/Venue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/VenueType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/VenueType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/Collection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/managers/Collection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/CreateTicket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/managers/CreateTicket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/ExecutorOfComands.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/Comands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/Console.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/InfinityRecursionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/InfinityRecursionException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/InvalidFormatExeption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/InvalidFormatExeption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/TypesOfArgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/TypesOfArgs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/Validator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,32 +35,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "JUnit.FilterLessThanVenueTest.execute.executor": "Run",
-    "JUnit.Filter_Less_Than_VenueTest.execute.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/vovat/IdeaProjects/lab6server/src/main/java/org/example",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/vovat/IdeaProjects/lab6/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FilterLessThanVenueTest.execute.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Filter_Less_Than_VenueTest.execute.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vovat/IdeaProjects/lab6client&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/vovat/IdeaProjects/lab6/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vovat\IdeaProjects\lab6server\src\main\java\org\example" />
@@ -190,7 +149,9 @@
       <workItem from="1712428434645" duration="303000" />
       <workItem from="1712487920090" duration="20707000" />
       <workItem from="1712562716448" duration="10342000" />
-      <workItem from="1712575687301" duration="497000" />
+      <workItem from="1712575687301" duration="2862000" />
+      <workItem from="1712578998830" duration="118000" />
+      <workItem from="1712579125305" duration="99000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <option name="closed" value="true" />
@@ -208,11 +169,30 @@
       <option name="project" value="LOCAL" />
       <updated>1712427950491</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="a">
+      <option name="closed" value="true" />
+      <created>1712577232995</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712577232995</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a" />
@@ -223,7 +203,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/connection/UdpServer.java</url>
-          <line>82</line>
+          <line>95</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -238,7 +218,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/connection/UdpServer.java</url>
-          <line>54</line>
+          <line>55</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
