@@ -7,14 +7,15 @@ import com.google.common.primitives.Bytes;
 import org.example.commands.Command;
 import org.example.managers.ExecutorOfCommands;
 import org.example.utility.Deserializer;
-import org.example.utility.InvalidFormatExeption;
 import org.example.utility.PropertyUtil;
+import org.example.utility.RecieveDataException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.io.*;
 import java.net.*;
 import java.nio.ByteBuffer;
-import java.nio.channels.DatagramChannel;
 import java.util.Arrays;
 
 import static org.apache.commons.lang3.ArrayUtils.toPrimitive;
@@ -26,10 +27,11 @@ public class UdpServer {
     private final ByteBuffer buffer = ByteBuffer.allocate(1024);
 
 
-
     private  InetSocketAddress clientAddress;
     private final int PACKET_SIZE = 1024;
     private final int DATA_SIZE = PACKET_SIZE - 1;
+
+    private static final Logger logger = LoggerFactory.getLogger(UdpServer.class);
 
     private DatagramSocket datagramSocket;
     private boolean running=true;
@@ -39,9 +41,7 @@ public class UdpServer {
     private UdpServer()  {
         this.serverAddress = new InetSocketAddress(PropertyUtil.getAddress(),PropertyUtil.getPort());
         openNewSocket();
-
-
-
+        logger.debug("Открыт сокет");
     }
 
 
@@ -52,31 +52,10 @@ public class UdpServer {
             throw new RuntimeException(e);
         }
     }
-    public void run() {
-         Command commandFromClient = null;
+    public void run() throws RecieveDataException{
         while (running) {
-            Pair<Command, SocketAddress> dataPair;
-            System.out.println("a");
-            try {
-                dataPair = receiveData();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-            commandFromClient = dataPair.getKey();
-            var clientAddr = dataPair.getValue();
-            clientAddress=  (InetSocketAddress)clientAddr;
-
-            if (commandFromClient!=null){
-                try {
-                    executor.executeCommand(commandFromClient);
-
-                }
-                catch (InvalidFormatExeption e){
-
-                }
-
-            }
-
+            var commandFromClient = receiveData();
+            executor.executeCommand(commandFromClient);
 
 
         }
@@ -91,32 +70,41 @@ public class UdpServer {
 
 
 
-    public Pair<Command, SocketAddress> receiveData() {
+    public Command receiveData() throws RecieveDataException {
         var received = false;
         var result = new byte[0];
         SocketAddress addr = null;
+        int i = 1;
         while (!received){
             var data = new byte[PACKET_SIZE];
             var dp = new DatagramPacket(data, PACKET_SIZE);
             try {
-                System.out.println("b");
                 datagramSocket.receive(dp);
                 System.out.println(dp);
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new RecieveDataException("Не удалось получить данные, адрес прошлого обслуженного клиента: "+clientAddress);
             }
-            if (data[data.length - 1] == 1) {
+            addr = dp.getSocketAddress();
+            if ((data[data.length - 1] == 3 || data[data.length - 1] == 1) && result.length != 0){
+                result = new byte[0];
+                i = 1;
+                logger.debug("Получен первый пакет "+i+" нового запроса, с адреса "+addr+", старый запрос с адреса "+clientAddress+" был не корректен");
+            }
+            else if (data[data.length - 1] == 2 || data[data.length - 1] == 3) {
                 received = true;
-                addr = dp.getSocketAddress();
+                logger.debug("Получен последний пакет запроса с адреса "+addr+" - пакет "+ i);
+                clientAddress = (InetSocketAddress) addr;
             }
-
+            else {
+                logger.debug("Получен  пакет "+i+"с адреса "+addr);
+            }
             result = Bytes.concat(result, Arrays.copyOf(data, data.length - 1));
+            i+=1;
         }
-        System.out.println();
+        Command command = Deserializer.deserialize(result);
+        logger.debug("Команда десериализованна успешно");
 
-
-
-        return new ImmutablePair<>(Deserializer.deserialize(result), addr);
+        return command;
     }
 
     private void sendData(byte[] data) throws IOException {
@@ -138,7 +126,7 @@ public class UdpServer {
             if (clientAddress != null) {
                 sendData(data);
             } else {
-                System.out.println("No client address available.");
+                logger.error("No client address available.");
             }
         } catch (Exception e) {
             e.printStackTrace();

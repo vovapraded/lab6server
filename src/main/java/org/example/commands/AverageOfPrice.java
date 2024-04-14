@@ -14,10 +14,11 @@ public class AverageOfPrice extends Command implements Serializable {
     private static final long serialVersionUID = "AverageOfPrice".hashCode();
     @Override
     public void execute() {
-        if (collection.getAveragePrice() == -1) {
+        var average = collection.getAveragePrice();
+        if (average.isEmpty()) {
             console.addToSend("Коллекция пуста");
         } else {
-            console.addToSend("Средняя цена " + collection.getAveragePrice());
+            console.addToSend("Средняя цена " + average.getAsDouble());
         }
         console.send();
     }

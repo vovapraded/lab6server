@@ -4,6 +4,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
 import org.example.dto.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,7 +17,9 @@ import java.io.FileNotFoundException;
  * The class is responsible for loading and saving the collection
  */
 public class DumpManager {
-        public static void loadFromFile(Collection collection) {
+    private static final Logger logger = LoggerFactory.getLogger(DumpManager.class);
+
+    public static void loadFromFile(Collection collection) {
             StringBuilder stringBuilder = new StringBuilder();
             String filePath = System.getenv("FILE_PATH");
             try {
@@ -29,10 +33,10 @@ public class DumpManager {
                 }
                 scanner.close();
             } catch (FileNotFoundException e){
-                System.out.println("Файл не найден или нет прав");
+                logger.error("Файл не найден или нет прав");
             }
             catch (Exception e) {
-                System.out.println("Ошибка при чтении файла: " + e.getMessage());
+                logger.error("Ошибка при чтении файла: " + e.getMessage());
             }
         }
         public static HashMap<Long,Ticket> parseJson(String json) {
@@ -54,21 +58,21 @@ public class DumpManager {
             String json = DumpManager.convertToJson(collection.getHashMap());
             // Путь к файлу, который нужно перезаписать
             String filePath = System.getenv("FILE_PATH");
-
             try (FileOutputStream fos = new FileOutputStream(filePath)) {
                 // Преобразование строки в массив байтов
                 byte[] bytes = json.getBytes();
                 // Запись массива байтов в файл
                 fos.write(bytes);
             } catch (IOException e) {
-                System.out.println("Ошибка при записи файла: " + e.getMessage());
+                logger.error("Ошибка при записи файла: " + e.getMessage());
             }
         }
         public static String convertToJson(HashMap<Long, Ticket> hashMap) {
-            Gson gsonBuiler = new GsonBuilder()
+            Gson gsonBuilder = new GsonBuilder()
                     .registerTypeAdapter(Date.class, new DateFormatting())
+                    .setPrettyPrinting()
                     .create();
-            return gsonBuiler.toJson(hashMap);
+            return gsonBuilder.toJson(hashMap);
         }
 
     }

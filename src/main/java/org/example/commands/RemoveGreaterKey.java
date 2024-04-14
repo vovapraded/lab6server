@@ -17,8 +17,8 @@ public class RemoveGreaterKey extends Command implements  Serializable {
 
     @Override
     public void execute() {
-            var idstr=stringArg;
-            Long id =ValidateId.validateId(idstr,false,collection);
+            var idStr=stringArg;
+            Long id =ValidateId.validateId(idStr,false,collection);
             int sizeBefore = collection.getCountOfElements();
             collection.removeGreaterKey(id);
             int sizeAfter = collection.getCountOfElements();

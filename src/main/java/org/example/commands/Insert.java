@@ -17,8 +17,9 @@ public class Insert extends Command implements Serializable {
 
     @Override
     public void execute() {
-        var idstr = stringArg;
-        Long id = ValidateId.validateId(idstr, true, collection);
+        var idStr = stringArg;
+        Long id = ValidateId.validateId(idStr, true, collection);
+        ticketArg.setId(id);
         collection.insertElement(ticketArg);
         console.addToSend("Билет успешно введён");
         console.send();

@@ -19,7 +19,7 @@ public class RemoveGreater extends Command implements Serializable {
     @Override
     public void execute() {
             CreateTicket creator = new CreateTicket();
-            Ticket ticket = creator.createTicket(collection.getFreeId());
+            Ticket ticket = creator.createTicket(null);
             collection.removeGreater(ticket);
             console.addToSend("Удалено успешно");
         console.send();

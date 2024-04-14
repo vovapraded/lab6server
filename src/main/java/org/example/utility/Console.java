@@ -23,10 +23,6 @@ public  class Console  {
     public static Console getInstance() {
         if (instance == null) {
             instance = new Console();
-            instance.addToSend("Добро пожаловать!");
-            instance.addToSend("Введите help для вывода инструкции");
-
-
         }
         return instance;
     }

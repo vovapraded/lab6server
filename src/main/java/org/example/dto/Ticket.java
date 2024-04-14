@@ -29,22 +29,25 @@ public class Ticket extends ElementsWithId implements Comparable<Ticket>, Serial
         this.refundable = refundable;
         this.type = type;
         this.venue=venue;
+        addToInstance(this);
     }
 
-    {instancesTicket.add(this);}
+
 
         //конструктор без даты
     public Ticket(Long id,String name,Coordinates coordinates,Date creationDate,Long price,Long discount,Boolean refundable,TicketType type,Venue venue){
         this.name= name;
         this.id = id;
         this.coordinates=coordinates;
-        this.creationDate =creationDate;
+        this.creationDate = creationDate;
         this.price=price;
         this.discount = discount;
         this.refundable = refundable;
         this.type = type;
         this.venue=venue;
+        addToInstance(this);
     }
+
 
 
     public Boolean getRefundable() {

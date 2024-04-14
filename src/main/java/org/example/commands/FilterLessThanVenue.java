@@ -10,6 +10,7 @@ import org.example.dto.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Output elements with venue.capacity less than this number
@@ -27,7 +28,7 @@ public class FilterLessThanVenue extends Command implements Serializable {
                 throw new InvalidFormatExeption("Вместимость должна быть числом");
             }
             Long capacity= Long.parseLong(capacityStr);
-            ArrayList<Ticket> filtered = collection.filterLessThanVenue(capacity);
+            List<Ticket> filtered = collection.filterLessThanVenue(capacity);
             if (filtered.isEmpty()){
                 console.addToSend("Нет таких элементов");
             }

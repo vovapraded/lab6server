@@ -19,7 +19,7 @@ public class Venue extends ElementsWithId implements Serializable {
         this.capacity=capacity;
         this.name = name;
     }
-    {instancesVenue.add(this);}
+
     public Venue(VenueType type,Long capacity,String name,Long id) {
         this.id = id;
         this.type = type;

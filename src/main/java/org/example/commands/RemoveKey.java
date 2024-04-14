@@ -15,8 +15,8 @@ public class RemoveKey extends Command implements Serializable {
     private static final long serialVersionUID = "RemoveKey".hashCode();
 
     public void execute(){
-        var idstr = stringArg;
-        collection.removeElement(ValidateId.validateId(idstr,false,collection));
+        var idStr = stringArg;
+        collection.removeElement(ValidateId.validateId(idStr,false,collection));
         console.addToSend("Элемент удалён");
         console.send();
 

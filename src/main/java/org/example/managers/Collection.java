@@ -4,10 +4,10 @@ import org.example.dto.Ticket;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static com.google.common.primitives.Longs.max;
 
 /**
  * The class that manages the collection
@@ -32,71 +32,41 @@ import java.util.Iterator;
     }
     public void insertElement(Ticket ticket){
         hashMap.put(ticket.getId(),ticket);
+        Ticket.addToInstance(ticket);
     }
     public void addHashMap(HashMap<Long,Ticket> anotherHashMap){
         hashMap.putAll(anotherHashMap);
     }
     public Long getFreeId(){
-        Long maxs = 0L;
-        for (Long count : hashMap.keySet()){
-            maxs = count>maxs ? count :maxs;
-        }
-        return maxs+1L;
+        Long maxId = hashMap.keySet().stream().max(Long::compare).orElse(0L);
+        return maxId+1L;
     }
 
     public Ticket getElement(Long id) {
         return hashMap.get(id);
     }
-    public void insertTicket(Ticket ticket){
-        hashMap.put(ticket.getId(),ticket);
-    }
     public  void removeElement(Long id){
         hashMap.remove(id);
     }
     public void removeGreater(Ticket ourTicket) {
-        Iterator<Ticket> iterator = hashMap.values().iterator();
-        while (iterator.hasNext()) {
-            Ticket ticket = iterator.next();
-            if (ticket.compareTo(ourTicket)>0) {
-                iterator.remove();
-            }
-        }
+        hashMap.values().removeIf(ticket -> ticket.compareTo(ourTicket) > 0);
     }
 
     public void removeGreaterKey(Long id) {
-        Iterator<Ticket> iterator = hashMap.values().iterator();
-        while (iterator.hasNext()) {
-            Ticket ticket = iterator.next();
-            if (ticket.getId() > id) {
-                iterator.remove();
-            }
-        }
+        hashMap.values().removeIf(ticket -> ticket.getId() > id);
     }
 
-    public double getAveragePrice(){
-        double s = 0;
-        for (Ticket ticket : hashMap.values()){
-            s+=ticket.getPrice();
-            }
-        if (hashMap.isEmpty()){
-            return -1;
-        }
-        s /= hashMap.size();
-        return s;
+    public OptionalDouble getAveragePrice(){
+        OptionalDouble average = hashMap.values().stream()
+                .map(ticket -> ticket.getId())
+                .mapToLong(Long::longValue)
+                .average();
+        return average;
     }
-    public ArrayList<Ticket> filterLessThanVenue(Long capacity){
-        ArrayList<Ticket> filtered = new ArrayList<Ticket>();
-        Long capacityOther;
-        for (Ticket ticket : hashMap.values()){
-            if (ticket.getVenue().getCapacity()==null) {
-                capacityOther = -1L;
-            }else {
-                capacityOther=ticket.getVenue().getCapacity();
-            }
-            if (capacityOther<capacity){
-                filtered.add(ticket);
-            }
-        }
+    public List<Ticket> filterLessThanVenue(Long capacity){
+        List<Ticket>  filtered = hashMap.values().stream()
+                .filter((ticket) -> ( ticket.getVenue().getCapacity() == null || ticket.getVenue().getCapacity() < capacity))
+                .collect(Collectors.toList());
         return filtered;
     }
 

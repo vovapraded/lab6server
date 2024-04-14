@@ -23,6 +23,7 @@ public class Update extends Command implements Serializable {
         collection.removeElement(id);
             Insert ins = new Insert ();
             ins.setStringArg(stringArg);
+            ins.setTicketArg(ticketArg);
             ins.execute();
 
     }

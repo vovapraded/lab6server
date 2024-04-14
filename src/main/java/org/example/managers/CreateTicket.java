@@ -1,7 +1,9 @@
 package org.example.managers;
 
+import org.example.commands.ValidateId;
 import org.example.dto.*;
 import org.example.utility.Console;
+import org.example.utility.InvalidFormatExeption;
 import org.example.utility.TypesOfArgs;
 import org.example.utility.Validator;
 
@@ -15,8 +17,8 @@ public class CreateTicket {
     public CreateTicket(){
 
     }
-    public static Ticket createTicket(Long id) {
-
+    public static Ticket createTicket(Long id) throws InvalidFormatExeption {
+        ValidateId.validateId(String.valueOf(id),true,collection);
         String name = "";
         while (name.isEmpty() || name.contains(" ")|| name.contains("\t")|| name.contains("\n")) {
             console.addToSend("Введите название билета");
@@ -40,7 +42,7 @@ public class CreateTicket {
         }
 
         Long discount = -1L;
-        while (discount <= 0 && discount != null) {
+        while (discount != null && discount <= 0  ) {
             console.addToSend("Введите скидку или пустую строку");
             String discountStr = console.getInputFromCommand(0, 1);
             if (Validator.validate(discountStr, TypesOfArgs.Long, false)) {

@@ -23,7 +23,7 @@ public class ReplaceIfGreater extends Command implements Serializable {
         Ticket oldTicket = collection.getElement(id);
 
         CreateTicket creator = new CreateTicket();
-        Long newId = collection.getFreeId();
+        Long newId = null;
 
         Ticket newTicket = creator.createTicket(newId);
 
