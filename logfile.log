@@ -1,0 +1,17 @@
+14:47:42.300 [main] DEBUG org.example.utility.Main - Сервер запускается
+14:47:42.322 [main] DEBUG org.example.connection.UdpServer - Открыт сокет
+14:47:42.379 [main] DEBUG org.example.utility.Main - Коллекция загружена. Содержит 3 элементов
+14:47:42.380 [main] DEBUG o.e.managers.ValidatorOfCollection - Коллекция валидна
+14:48:16.258 [main] DEBUG org.example.connection.UdpServer - Получен последний пакет запроса с адреса /127.0.0.1:50575 - пакет 1
+14:48:16.275 [main] DEBUG org.example.connection.UdpServer - Команда десериализованна успешно
+14:48:16.288 [main] DEBUG o.e.managers.ExecutorOfCommands - Команда org.example.commands.Show выполнена успешно
+14:49:54.375 [main] DEBUG org.example.connection.UdpServer - Получен последний пакет запроса с адреса /127.0.0.1:50575 - пакет 1
+14:49:54.377 [main] DEBUG org.example.connection.UdpServer - Команда десериализованна успешно
+14:49:54.379 [main] ERROR org.example.utility.Main - Ошибка: class java.lang.NullPointerException сообщение об ошибке: Cannot invoke "java.lang.Long.longValue()" because the return value of "org.example.dto.Venue.getCapacity()" is null причина ошибки: null
+14:51:06.264 [main] DEBUG org.example.utility.Main - Сервер запускается
+14:51:06.287 [main] DEBUG org.example.connection.UdpServer - Открыт сокет
+14:51:06.343 [main] DEBUG org.example.utility.Main - Коллекция загружена. Содержит 3 элементов
+14:51:06.344 [main] DEBUG o.e.managers.ValidatorOfCollection - Коллекция валидна
+14:51:10.938 [main] DEBUG org.example.connection.UdpServer - Получен последний пакет запроса с адреса /127.0.0.1:50575 - пакет 1
+14:51:10.949 [main] DEBUG org.example.connection.UdpServer - Команда десериализованна успешно
+14:51:10.962 [main] DEBUG o.e.managers.ExecutorOfCommands - Команда org.example.commands.FilterLessThanVenue выполнена успешно
