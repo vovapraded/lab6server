@@ -1,8 +1,9 @@
 package org.example.managers;
 
-import lombok.Getter;
-import org.example.commands.Command;
-import org.example.connection.UdpServer;
+import org.common.commands.Command;
+import org.common.managers.Collection;
+import org.common.utility.Console;
+import org.common.utility.InvalidFormatException;
 import org.example.utility.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,23 +16,17 @@ public class ExecutorOfCommands {
 
 
     private final Collection collection = Collection.getInstance();
-    private  final  Console console = Console.getInstance();
+    private  final Console console;
     private static final Logger logger = LoggerFactory.getLogger(ExecutorOfCommands.class);
 
 
-    public ExecutorOfCommands(){
+    public ExecutorOfCommands( Console console){
+        this.console = console;
     }
-    public void executeCommand(Command command) {
-        try {
+    public void executeCommand(Command command) throws InvalidFormatException {
+            command.setConsole(console);
             command.execute();
             logger.debug("Команда "+command.getClass().getName()+" выполнена успешно");
-
-        }
-        catch (InvalidFormatExeption e){
-            console.addToSend(e.getMessage());
-            logger.error(e.getMessage());
-            console.send();
-        }
     }
 
 

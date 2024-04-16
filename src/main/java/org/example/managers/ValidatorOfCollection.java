@@ -1,15 +1,11 @@
 package org.example.managers;
 
-import org.example.dto.ElementsWithId;
-import org.example.dto.Ticket;
-import org.example.dto.Venue;
-import org.example.dto.VenueType;
-import org.example.utility.Console;
-import org.example.utility.InvalidFormatExeption;
-import org.example.utility.Main;
+import org.common.dto.Ticket;
+import org.common.dto.Venue;
+import org.common.managers.Collection;
+import org.common.utility.Console;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.apache.commons.collections4.CollectionUtils;
 
 
 import java.util.*;
@@ -20,8 +16,13 @@ import java.util.*;
 public class ValidatorOfCollection {
     private static final Logger logger = LoggerFactory.getLogger(ValidatorOfCollection.class);
 
-    private final Collection collection = Collection.getInstance();
-    private final  Console console = Console.getInstance();
+    private final org.common.managers.Collection collection = Collection.getInstance();
+    private final Console console;
+
+    public ValidatorOfCollection(Console console) {
+        this.console = console;
+    }
+
     public boolean validateCollection() {
         Set<Long> setTicketId = new HashSet<>();
         Set<Long> setVenueId = new HashSet<>();

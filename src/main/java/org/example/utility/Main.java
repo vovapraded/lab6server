@@ -1,16 +1,11 @@
 package org.example.utility;
 
-import java.net.InetSocketAddress;
-import java.net.SocketException;
-import java.util.Date;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
+import org.common.managers.Collection;
+import org.common.managers.DumpManager;
+import org.common.utility.Console;
+import org.common.utility.InvalidFormatException;
+import org.example.connection.ResponsePublisher;
 import org.example.connection.UdpServer;
-import  org.example.dto.*;
-import   org.example.utility.*;
-import org.example.commands.*;
 import org.example.managers.*;
 
 import org.slf4j.Logger;
@@ -27,22 +22,22 @@ public class Main {
             logger.debug("Сервер запускается");
 
             Collection collection = Collection.getInstance();
-            Console console = Console.getInstance();
-
+            Console console = new CurrentConsole();
             DumpManager.loadFromFile(collection);
             logger.debug("Коллекция загружена. Содержит " + collection.getHashMap().size() + " элементов");
-            ValidatorOfCollection validator = new ValidatorOfCollection();
+            ValidatorOfCollection validator = new ValidatorOfCollection(console);
             validator.validateCollection();
-
-            UdpServer udpServer = UdpServer.getInstance();
+            UdpServer udpServer = new UdpServer(new ExecutorOfCommands(console));
+            ResponsePublisher.addListener(udpServer);
             while (true) {
                 try {
                     udpServer.run();
-                } catch (RecieveDataException e) {
-                    logger.error(e.getMessage());
+                }catch (InvalidFormatException e){
                     console.addToSend(e.getMessage());
                     console.send();
-
+                }
+                catch (RecieveDataException e) {
+                    logger.error(e.getMessage());
                 }
             }
         }catch (Exception e){
