@@ -1,10 +1,10 @@
 package org.example.connection;
 
-import lombok.Getter;
 import com.google.common.primitives.Bytes;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.common.commands.Command;
-import org.common.utility.Console;
-import org.common.utility.InvalidFormatException;
 import org.example.managers.ExecutorOfCommands;
 import org.common.utility.PropertyUtil;
 import org.example.utility.RecieveDataException;
@@ -16,7 +16,10 @@ import org.example.utility.*;
 import java.io.*;
 import java.net.*;
 import java.nio.ByteBuffer;
+import java.nio.channels.DatagramChannel;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import static org.apache.commons.lang3.ArrayUtils.toPrimitive;
 
@@ -25,15 +28,14 @@ public class UdpServer implements ResponseListener {
     private final InetSocketAddress serverAddress;
     private final ExecutorOfCommands executor;
     private final ByteBuffer buffer = ByteBuffer.allocate(1024);
+    private HashMap<SocketAddress, byte[]> clients = new HashMap<>();
 
-
-    private  InetSocketAddress clientAddress;
     private final int PACKET_SIZE = 1024;
     private final int DATA_SIZE = PACKET_SIZE - 1;
 
     private static final Logger logger = LoggerFactory.getLogger(UdpServer.class);
 
-    private DatagramSocket datagramSocket;
+    private DatagramChannel datagramChannel;
     private boolean running=true;
     public UdpServer(ExecutorOfCommands executor)  {
         this.executor =executor;
@@ -45,78 +47,73 @@ public class UdpServer implements ResponseListener {
 
     private void openNewSocket(){
         try {
-            this.datagramSocket = new DatagramSocket(serverAddress);
-        } catch (SocketException e) {
+            this.datagramChannel = DatagramChannel.open();
+            datagramChannel.configureBlocking(false); // Устанавливаем неблокирующий режим
+            datagramChannel.bind(serverAddress);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
     public void run() throws RecieveDataException, SocketException {
+
         while (running) {
-                var commandFromClient = receiveData();
-                executor.executeCommand(commandFromClient);
+                var commandAndAddr = receiveData();
+                executor.executeCommand(commandAndAddr);
         }
     }
-    public void connectToClient(SocketAddress addr) throws SocketException {
-        datagramSocket.setSoTimeout(10000);
-        datagramSocket.connect(addr);
-    }
-
-    public void disconnectFromClient() throws SocketException {
-        datagramSocket.disconnect();
-        datagramSocket.setSoTimeout(0);
-
-    }
-
+//    public void connectToClient(SocketAddress addr) throws SocketException {
+//        datagramChannel.setSoTimeout(10000);
+//
+//    }
+//
+//    public void disconnectFromClient() throws SocketException {
+//        datagramChannel.setSoTimeout(0);
+//
+//    }
 
 
-    public Command receiveData() throws RecieveDataException, SocketException {
+
+    public ImmutablePair receiveData() throws RecieveDataException {
         var received = false;
         var result = new byte[0];
         SocketAddress addr = null;
         int i = 1;
         while (!received){
-            var data = new byte[PACKET_SIZE];
-            var dp = new DatagramPacket(data, PACKET_SIZE);
+            var buffer=  ByteBuffer.allocate(PACKET_SIZE);
+            buffer.clear();
             try {
-                datagramSocket.receive(dp);
-            } catch (SocketTimeoutException e){
-                    disconnectFromClient();
-                    throw new RecieveDataException("Клиент " + addr + " не досылал пакеты более 10 секунд, клиент отключен");
-
+                addr = datagramChannel.receive(buffer);
+                if (buffer.position() == 0) {
+                    // Если размер данных в буфере равен нулю, пропускаем итерацию цикла и продолжаем ожидать данных
+                    continue;
+                }
             } catch (IOException e) {
-                disconnectFromClient();
-                throw new RecieveDataException("Не удалось получить данные, адрес прошлого обслуженного клиента: " + clientAddress);
+                throw new RecieveDataException("Не удалось получить данные, адрес клиента: " + addr);
             }
-            addr = dp.getSocketAddress();
-            if (i==1) connectToClient(addr);
+            var data = buffer.array();
 
-            if ((data[data.length - 1] == 3 || data[data.length - 1] == 1) && result.length != 0){
-                result = new byte[0];
-                i = 1;
-                logger.debug("Получен "+dp+" пакет "+i+" нового запроса, с адреса "+addr+", старый запрос с адреса "+clientAddress+" был не корректен");
-            }
-            clientAddress = (InetSocketAddress) addr;
 
             if (data[data.length - 1] == 2 || data[data.length - 1] == 3) {
                 received = true;
 
-                logger.debug("Получен "+dp+" последний пакет запроса с адреса "+addr+" - пакет "+ i);
+                logger.debug("Получен " + Arrays.hashCode(data) + " последний пакет запроса с адреса " + addr + " - пакет " + i);
             }
             else {
-                logger.debug("Получен "+dp+" пакет "+i+" с адреса "+addr);
+                logger.debug("Получен "+ Arrays.hashCode(data) +" пакет "+i+" с адреса "+addr);
             }
-            result = Bytes.concat(result, Arrays.copyOf(data, data.length - 1));
+            var resultPrevious = clients.get(addr);
+            if (resultPrevious == null) resultPrevious = new byte[0];
+            result = Bytes.concat(resultPrevious, Arrays.copyOf(data, data.length - 1));
+            clients.put(addr,result);
             i+=1;
         }
-        disconnectFromClient();
-
+        clients.remove(addr);
         Command command = Deserializer.deserialize(result);
         logger.debug("Команда "+command.getClass().getName()+" десериализованна успешно");
-
-        return command;
+        return new ImmutablePair<>(command, addr);
     }
 
-    private void sendData(byte[] data) throws IOException {
+    private void sendData(byte[] data, SocketAddress address) throws IOException {
         byte[][] packets=new byte[(int)Math.ceil(data.length / (double)DATA_SIZE)][PACKET_SIZE];
         for (int i = 0; i<packets.length;i++){
 
@@ -128,25 +125,23 @@ public class UdpServer implements ResponseListener {
         }
 
         for (byte[] packet : packets) {
-            var dp= new DatagramPacket(packet,packet.length,clientAddress);
-            datagramSocket.send(dp);
+            // Создаем буфер для текущего пакета
+            ByteBuffer buffer = ByteBuffer.wrap(packet);
+            // Отправляем пакет на указанный адрес
+            datagramChannel.send(buffer, address);
+            // Очищаем буфер после отправки пакета (это необходимо в неблокирующем режиме)
+            buffer.clear();
 
         }
     }
-    public void sendResponse(byte[] data) {
-        try {
-            if (clientAddress != null) {
-                sendData(data);
-            } else {
-                logger.error("No client address available.");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 
     @Override
-    public void onResponse(byte[] data) {
-        sendResponse(data);
+    public void onResponse(byte[] data, SocketAddress address) {
+        try {
+            sendData(data,address);
+        } catch (IOException e) {
+            logger.error("Не получилось отправить ответ клиенту: "+address);
+        }
     }
 }

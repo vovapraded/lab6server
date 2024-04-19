@@ -1,107 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="lab6server:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3acac28-a2ee-4ea6-9edf-def5a5fa7f1f" name="Changes" comment="a">
-      <change afterPath="$PROJECT_DIR$/../lab6common/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/.idea/artifacts/lab6common.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/AverageOfPrice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Clear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/ExecuteScript.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Exit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/FilterLessThanVenue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Help.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Insert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/PrintDescending.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/RemoveGreater.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/RemoveGreaterKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/RemoveKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/ReplaceIfGreater.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Save.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Show.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Update.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/ValidateId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/dto/Coordinates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/dto/ElementsWithId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/dto/Ticket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/dto/TicketType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/dto/Venue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/dto/VenueType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/managers/CoordinatesFormatting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/managers/CreateTicket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/managers/DateFormatting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/managers/DumpManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/managers/TicketFormatting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/managers/VenueFormatting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/utility/Commands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/utility/Console.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/utility/TypesOfArgs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/utility/Validator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/lab6common.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/connection/ResponseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/connection/ResponsePublisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/CurrentConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="d3acac28-a2ee-4ea6-9edf-def5a5fa7f1f" name="Changes" comment="fin">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/lab6server_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/server.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/AverageOfPrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/AverageOfPrice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Clear.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Clear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/ExecuteScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/ExecuteScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/FilterLessThanVenue.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/FilterLessThanVenue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Insert.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Insert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/PrintDescending.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/PrintDescending.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/RemoveGreater.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/RemoveGreater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/RemoveGreaterKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/RemoveGreaterKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/RemoveKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/RemoveKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/ReplaceIfGreater.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/ReplaceIfGreater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Show.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/ValidateId.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/ValidateId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/utility/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/utility/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/utility/InvalidFormatException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6common/src/main/java/org/common/utility/InvalidFormatException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logfile.log" beforeDir="false" afterPath="$PROJECT_DIR$/logfile.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/AverageOfPrice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Clear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Command.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/ExecuteScript.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Exit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/FilterLessThanVenue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Help.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Insert.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/PrintDescending.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/RemoveGreater.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/RemoveGreaterKey.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/RemoveKey.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/ReplaceIfGreater.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Save.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Show.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/Update.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/ValidateId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/connection/ResponseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/connection/ResponseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/connection/ResponsePublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/connection/ResponsePublisher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/connection/UdpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/connection/UdpServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/Coordinates.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/ElementsWithId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/Ticket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/TicketType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/Venue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/VenueType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/Collection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/CoordinatesFormatting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/CreateTicket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/DateFormatting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/DumpManager.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/ExecutorOfCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/managers/ExecutorOfCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/ParseInput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/TicketFormatting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/ValidatorOfCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/managers/ValidatorOfCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managers/VenueFormatting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/Console.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/Deserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/Deserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/InfinityRecursionException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/InvalidFormatExeption.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/CurrentConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/CurrentConsole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/PropertyUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/TypesOfArgs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/Validator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/help.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/help.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/commands/FilterLessThanVenueTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +59,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../lab6common" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -131,42 +72,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.FilterLessThanVenueTest.execute.executor": "Run",
-    "JUnit.Filter_Less_Than_VenueTest.execute.executor": "Run",
-    "Maven.Main.executor": "Run",
-    "Maven.lab6 [clean].executor": "Run",
-    "Maven.lab6 [install,--non-recursive].executor": "Run",
-    "Maven.lab6 [package].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "17",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/vovat/IdeaProjects/lab6common/src/main/java/org/common/commands",
-    "last_opened_file_path": "C:/Users/vovat/IdeaProjects/lab6common",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/vovat/IdeaProjects/lab6/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.14941406",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.FilterLessThanVenueTest.execute.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Filter_Less_Than_VenueTest.execute.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.lab6 [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.lab6 [install,--non-recursive].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.lab6 [package].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/vovat/IdeaProjects/lab6common/src/main/java/org/common/commands&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vovat/IdeaProjects/lab6server/META-INF/MANIFEST.MF&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/vovat/IdeaProjects/lab6/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14941406&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.connection" />
@@ -265,7 +206,11 @@
       <workItem from="1713010719254" duration="3392000" />
       <workItem from="1713023092546" duration="19257000" />
       <workItem from="1713108807386" duration="23313000" />
-      <workItem from="1713197144571" duration="14692000" />
+      <workItem from="1713197144571" duration="15570000" />
+      <workItem from="1713277723530" duration="13800000" />
+      <workItem from="1713430651120" duration="3483000" />
+      <workItem from="1713524727085" duration="2239000" />
+      <workItem from="1713526975505" duration="5192000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <option name="closed" value="true" />
@@ -331,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713095515036</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fin">
+      <option name="closed" value="true" />
+      <created>1713277036583</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713277036583</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,7 +315,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <MESSAGE value="fin" />
+    <option name="LAST_COMMIT_MESSAGE" value="fin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -394,7 +348,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../lab6common/src/main/java/org/common/commands/Update.java</url>
-          <line>18</line>
+          <line>19</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
@@ -413,5 +367,8 @@
         <watch expression="dp" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/lab6server$Main.ic" NAME="Main Coverage Results" MODIFIED="1713360205344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

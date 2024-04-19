@@ -33,8 +33,8 @@ public class Main {
                 try {
                     udpServer.run();
                 }catch (InvalidFormatException e){
-                    console.addToSend(e.getMessage());
-                    console.send();
+                    console.addToSend(e.getMessage(),e.getAddress());
+                    console.send(e.getAddress());
                 }
                 catch (RecieveDataException e) {
                     logger.error(e.getMessage());
