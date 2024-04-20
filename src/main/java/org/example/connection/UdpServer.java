@@ -17,6 +17,7 @@ import java.io.*;
 import java.net.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -28,7 +29,7 @@ public class UdpServer implements ResponseListener {
     private final InetSocketAddress serverAddress;
     private final ExecutorOfCommands executor;
     private final ByteBuffer buffer = ByteBuffer.allocate(1024);
-    private HashMap<SocketAddress, byte[]> clients = new HashMap<>();
+    private HashMap<SocketAddress, AbstractMap.SimpleEntry< byte[], Integer>> clients = new HashMap<>();
 
     private final int PACKET_SIZE = 1024;
     private final int DATA_SIZE = PACKET_SIZE - 1;
@@ -77,7 +78,7 @@ public class UdpServer implements ResponseListener {
         var received = false;
         var result = new byte[0];
         SocketAddress addr = null;
-        int i = 1;
+        int i=1;
         while (!received){
             var buffer=  ByteBuffer.allocate(PACKET_SIZE);
             buffer.clear();
@@ -91,6 +92,18 @@ public class UdpServer implements ResponseListener {
                 throw new RecieveDataException("Не удалось получить данные, адрес клиента: " + addr);
             }
             var data = buffer.array();
+            if (data[data.length-1] == 3 || data[data.length-1] == 1){
+                i = 1;
+            }else{
+                i = clients.get(addr).getValue();
+            }
+            if ((data[data.length-1] == 1  )&& clients.containsKey(addr)){
+                logger.debug("Получен " + Arrays.hashCode(data) + " пакет запроса с адреса " + addr + " - пакет " + i+" предыдущая команда не была получена полностью");
+            }
+            if ((data[data.length-1] == 3  )&& clients.containsKey(addr)){
+                logger.debug("Получен " + Arrays.hashCode(data) + "последний пакет запроса с адреса " + addr + " - пакет " + i+" предыдущая команда не была получена полностью");
+            }
+
 
 
             if (data[data.length - 1] == 2 || data[data.length - 1] == 3) {
@@ -101,11 +114,11 @@ public class UdpServer implements ResponseListener {
             else {
                 logger.debug("Получен "+ Arrays.hashCode(data) +" пакет "+i+" с адреса "+addr);
             }
-            var resultPrevious = clients.get(addr);
-            if (resultPrevious == null) resultPrevious = new byte[0];
+           var resultPrevious = new byte[0];
+            if (clients.containsKey(addr)) resultPrevious = clients.get(addr).getKey();
             result = Bytes.concat(resultPrevious, Arrays.copyOf(data, data.length - 1));
-            clients.put(addr,result);
-            i+=1;
+            clients.put(addr, new AbstractMap.SimpleEntry<>(result, i + 1));
+
         }
         clients.remove(addr);
         Command command = Deserializer.deserialize(result);
