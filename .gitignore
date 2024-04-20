@@ -11,6 +11,10 @@ target/
 *.iws
 *.iml
 *.ipr
+# IntellijIdea files
+*.iml
+.idea
+out
 
 ### Eclipse ###
 .apt_generated
